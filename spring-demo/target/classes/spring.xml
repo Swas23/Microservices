@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+      
+
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	 http://www.springframework.org/schema/mvc
+     http://www.springframework.org/schema/mvc/spring-mvc.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/tx
+	 http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+	 >
+	
+	 
+	 <bean id="hello" class="com.cts.spring_demo.HelloWorld"/>
+	 <bean id="person" class="com.cts.spring_demo.Person">
+	 <property name="name" value="Ram"></property>
+	 <property name="age" value="22"></property>
+	 </bean>
+	 
+	 
+	 
+	 <bean id="empp" class="com.cts.spring_demo.Employee" autowire="byType">
+	 <property name="id" value="123" />
+	 <property name="name" value="Rahul" />
+	 <!-- <property name="dId" ref="dept1"></property> -->
+	 </bean> 
+	 
+	 
+	 
+	 <bean id ="dept1" class="com.cts.spring_demo.Department" >
+	 <property name="deptId" value="IT" />
+	 </bean>
+	  <bean id ="dId" class="com.cts.spring_demo.Department" >
+	 <property name="deptId" value="Finance" />
+	 </bean>
+	  <bean id ="dept3" class="com.cts.spring_demo.Department" primary="true">
+	 <property name="deptId" value="Marketing" />
+	 </bean>
+	 
+	 
+	 
+	 <bean id="triangle" class="com.cts.spring_demo.Triangle">
+	 <property name="pointA" ref="point1"></property>
+	 <property name="pointB" ref="point2"></property>
+	 <property name="pointC" ref="point3"></property>
+	 </bean>
+	 
+	 
+	 
+	 <bean id="point1" class="com.cts.spring_demo.Point">
+	 <property name="x" value="20"/>
+	 <property name="y" value="30"/>
+	 </bean>
+	 <bean id="point2" class="com.cts.spring_demo.Point">
+	 <property name="x" value="40"/>
+	 <property name="y" value="50"/>
+	 </bean>
+	 <bean id="point3" class="com.cts.spring_demo.Point">
+	 <property name="x" value="60"/>
+	 <property name="y" value="70"/>
+	 </bean>
+	 
+	 <bean id="lib" class="com.cts.spring_demo.Library">
+	 <property name="books">
+	 <list>
+	 <value>Novel</value>
+	 <value>Story</value>
+	 <value>Biography</value>
+	 <value>Dictionary</value>
+	 </list>
+	 </property>
+	 </bean>
+	 
+	 
+	 <bean id="method" class="com.cts.spring_demo.LifeCycleBean" init-method="init" destroy-method="destroy" lazy-init="true"/>
+	 
+	 
+	 <bean id="dog" class="com.cts.spring_demo.Dog" />
+	 <bean id="cat" class="com.cts.spring_demo.Cat" primary="true"/>
+	 
+	 <bean id="clientanimal" class="com.cts.spring_demo.Client" autowire="byType">
+	
+	 </bean>
+	 
+	 
+     </beans>
